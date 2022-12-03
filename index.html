@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  Add new user in the users array
+  ~ get user by his email or id (use any one email or id)
+  ~ delete user from users data */
+
+        var users = [{
+            id: 1, name: "Jack", pass: 123456
+        }, {
+            id: 2, name: "Ali", pass: 123456
+        }, {
+            id: 3, name: "Ahmed", pass: 789000
+        }]
+
+        const getuser = (id) => {
+            return users.filter(x => x.id == id)
+        }
+
+        const adduser = (o) => {
+            var index = users.at(-1) ? users.at(-1).id + 1 : 1000
+            users.push({ id: index, ...o })
+        }
+
+        const delUser = (id) => {
+            users = users.filter(x => x.id !== id)
+        }
+
+
+        adduser({ name: "aiman", pass: 389000 })
+        delUser(3)
+        console.log(getuser(3))
+    </script>
+
+</body>
+
+</html>
